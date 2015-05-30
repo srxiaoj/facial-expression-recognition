@@ -15,3 +15,11 @@ Summary:
 2.	An upper bound algorithm was designed to improve the time to compute cosine similarity function and improved 33% compared to brute force
 3.	A partial quick sort algorithm is applied to sort the k largest number in a time O(n + klogk)
 
+This program is written to recognize AU (action unit) by using the K-nearest neighbor-based method. 
+Compile procedure:
+1. put the code in the same folder of the query and template date file.
+2. open teminal (command line)
+3. type "cd Desktop" to go to Desktop folder
+4. type "cd data" to go to data folder
+5. type "g++" FacialRecognization.cpp to compile
+6. type "./a.out" to run the output
