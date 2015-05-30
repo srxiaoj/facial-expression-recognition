@@ -12,8 +12,6 @@ The methodology I use to solve this problem includes three parts:
 
 Summary:
 1.	Six different I/O algorithms were compared for reading large files into vectors
-
 2.	An upper bound algorithm was designed to improve the time to compute cosine similarity function and improved 33% compared to brute force
-
-3.	A partial quick sort algorithm is applied to sort the k largest number in a time O(n + klogk).
+3.	A partial quick sort algorithm is applied to sort the k largest number in a time O(n + klogk)
 
