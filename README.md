@@ -11,7 +11,7 @@ The methodology I use to solve this problem includes three parts:
 3. Method to select the top 10 largest similarity value for each query file and sort them. A modified quicksort algorithm is applied to sort the 10 largest values from the 138 results: a pivot corresponding to the 10th largest value is being calculated using partial quicksort in the time O(n), and then another quicksort is taken to take care the first ten unsorted results, so the final efficiency comes out as O(n + klogk), k is the number of largest value, in this case 10.
 
 Summary:
-•	Six different I/O algorithms were compared for reading large files into vectors
-•	An upper bound algorithm was designed to improve the time to compute cosine similarity function and improved 33% compared to brute force
-•	A partial quick sort algorithm is applied to sort the k largest number in a time O(n + klogk)
+1.	Six different I/O algorithms were compared for reading large files into vectors
+2.	An upper bound algorithm was designed to improve the time to compute cosine similarity function and improved 33% compared to brute force
+3.	A partial quick sort algorithm is applied to sort the k largest number in a time O(n + klogk)
 
