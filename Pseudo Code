@@ -1,0 +1,126 @@
+//Algorithm: ListTopValue: for 141 query files, find the 10 elements in the template files that are most similar to the query
+//Input: query file name, template file name
+//output: a list of index of the 10 most similar elements and the corresponding similarity value
+for i ← 1 to 47 do
+templateVector ← generateTwoDVector(“i_template.dat”)
+queryVector ← generateOneDVector(“i_AU01_query.dat”)
+svalue ← getSVector(queryVector, templateVector)
+svalue ← getTopValue(svalue, numberOfTopValue)
+outputSvalue
+
+queryVector ← generateOneDVector(“i_AU12_query.dat”)
+svalue ← getSVector(queryVector, templateVector)
+svalue ← getTopValue(svalue, numberOfTopValue)
+outputSvalue
+
+queryVector ← generateOneDVector(“i_AU17_query.dat”)
+svalue ← getSVector(queryVector, templateVector)
+svalue ← getTopValue(svalue, numberOfTopValue)
+outputSvalue
+
+//Algorithm: generateOneDVector (filename)
+//Input: filename in string
+//Output: a 1D vector to hold all the value in the file, x[0, .. , k]
+ifstream aFile(filename)
+double aValue
+while aFile >> aValue
+	x.append(aValue)
+return x[0, .. , k]
+
+//Algorithm: generateTwoDVector (filename)
+//Input: template filename in string
+//Output: a 2D vector to hold all the value in the file, y[0, .. , i][ 0, .. , k]
+string aString
+aString←fileToString(filename)
+stringstream stream(aString)
+double aValue
+while stream >> aValue
+	aOneDVector[0, .., k]
+	while next char in stream is not \n
+		aOneDVector.append(aValue)
+	y.append(aOneDVector)
+return y[0, .. , i][ 0, .. , k]
+
+//Algorithm: getSVector (x[k], y[i][k])
+//Input: queryVector of x[0, .. , k], templateVector of y[0, .. , i][ 0, .. , k]
+//Output: a vector of all the similarity value s[0, .. , i]
+double sumXSquare ← getSumXSquare(queryVector)
+sumXY[0, .. ,i] ← getSumXY(x[0, .. , k], y[0, .. , i][ 0, .. , k])
+sumYSquare[0, .. ,i] ← getSumYSquare(y[0, .. , i][ 0, .. , k])
+for i ← 0 to 5632 do
+	s.append(sumXYVector[i]/(sumXSquare*sumYSquareVector[i]))
+return s[0, .. , i]
+
+//Algorithm: getSumXSquare (x[k])
+//Input: queryVector of x[0, .. , 5632]
+//Output: value of SumXSquare
+double sumXSquare = 0.0
+for k ← 0 to 5632 do
+	sumXSquare += x[k]*x[k]
+sumXSquare ← sqrt(sumXSquare)
+return sumXSquare
+
+//Algorithm: getSumYSquare ([y[i][k])
+//Input: templateVector of y[0, .. , i][ 0, .. , k]
+//Output: a vector of all the SumYSquare[0, .. , i]
+for i ← 0 to 137 do
+	double count = 0.0
+for k ← 0 to 5632 do
+		count += y[i][k] *y[i][k]
+	count ← sqrt (count)
+sumYSquare.append(count)
+return SumYSquare[0, .. , i]
+
+//Algorithm: getSumXY (x[k], y[i][k])
+//Input: queryVector of x[0, .. , k], templateVector of y[0, .. , i][ 0, .. , k]
+//Output: a vector of all the SumXY[0, .. , i]
+for i ← 0 to 137 do
+	double count = 0.0
+for k ← 0 to 5632 do
+		count += x[k] *y[i][k]
+	count ← sqrt (count)
+sumXY.append(count)
+return SumXY[0, .. , i]
+
+//Algorithm: getTopValue (s[0, .. , k])
+//Input: a vector of all the similarity value s[0, .. , 137]
+Output: 10 largest similarity value and its index
+partialQuickSort(s, 0, 137, 10)
+quickSort(s, 0, 10)
+return s[0, .. , 9]
+
+//Algorithm: partialQuickSort (s, start, end, k)
+//Input: a vector of all the similarity value s[start, .. , end], number of partial sort k
+//Output: kth largest value and all number before s[k] larger than s[k]
+int pivot;
+	if end > start
+		pivot ← partition(s, start, end);
+		if pivot = k-1
+			return s[pivot]’s index
+		else if pivot > k - 1
+			partialQuickSort(s, start, pivot, k);
+		else
+			partialQuickSort(s, pivot + 1, end, k);
+	else return s[end]’s index;
+
+//Algorithm: quickSort (s, l, r)
+//Input: a vector of all the similarity value s[l, .. , r]
+//Output: sort s in non-increasing order
+int pivot;
+	if  r > l
+		pivot ← partition(s, l, r)
+		quickSort(s, l, pivot - 1)
+		quickSort(s, pivot + 1, r)
+
+//Algorithm: partition (s, left, right)
+//Input: a vector of all the similarity value s[left, .. , right]
+//Output: the pivot index
+int p ← left
+	double pValue ← s[left]
+	for i ← left+1 to right do
+		if s[i] > pValue
+			p++
+			swap(s[i], s[p])
+	swap(s[i], s[left])
+return p;
+
